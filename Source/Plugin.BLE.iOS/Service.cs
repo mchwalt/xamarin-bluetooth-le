@@ -9,6 +9,7 @@ using Plugin.BLE.Abstractions.Utils;
 
 namespace Plugin.BLE.iOS
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Service : ServiceBase
     {
         private readonly CBService _service;
@@ -68,4 +69,5 @@ namespace Plugin.BLE.iOS
                 unsubscribeReject: handler => _bleCentralManagerDelegate.DisconnectedPeripheral -= handler);
         }
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

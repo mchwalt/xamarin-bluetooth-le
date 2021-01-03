@@ -3,6 +3,9 @@ using CoreBluetooth;
 
 namespace Plugin.BLE.iOS
 {
+    /// <summary>
+    /// Extensions class, e.g. to create a full Guid from the Bluetooth uuid (short version)
+    /// </summary>
     public static class Extensions
     {
         /// <summary>

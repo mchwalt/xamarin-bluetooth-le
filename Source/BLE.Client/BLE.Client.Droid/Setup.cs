@@ -2,12 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Acr.UserDialogs;
-using Android.Content;
-using MvvmCross.ViewModels;
 using MvvmCross;
 using MvvmCross.Forms.Platforms.Android.Core;
 using Plugin.Permissions;
 using Plugin.Settings;
+using MvvmCross.IoC;
 
 namespace BLE.Client.Droid
 {
@@ -26,5 +25,15 @@ namespace BLE.Client.Droid
             Mvx.IoCProvider.RegisterSingleton(() => CrossSettings.Current);
             Mvx.IoCProvider.RegisterSingleton(() => CrossPermissions.Current);
         }
+
+//        protected override IMvxIoCProvider InitializeIoC()
+//        {
+//            IMvxIoCProvider mvxIoCProvider = base.InitializeIoC();
+//
+//            mvxIoCProvider.RegisterSingleton(() => UserDialogs.Instance);
+//            mvxIoCProvider.RegisterSingleton(() => CrossSettings.Current);
+//            mvxIoCProvider.RegisterSingleton(() => CrossPermissions.Current);
+//            return mvxIoCProvider;
+//        }
     }
 }

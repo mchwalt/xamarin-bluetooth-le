@@ -10,6 +10,7 @@ using Plugin.BLE.Abstractions.Utils;
 
 namespace Plugin.BLE.iOS
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Device : DeviceBase
     {
         private readonly CBPeripheral _nativeDevice;
@@ -152,4 +153,5 @@ namespace Plugin.BLE.iOS
             return false;
         }
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

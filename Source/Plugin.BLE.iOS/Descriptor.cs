@@ -8,6 +8,7 @@ using Plugin.BLE.Abstractions.Utils;
 
 namespace Plugin.BLE.iOS
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Descriptor : DescriptorBase
     {
         private readonly CBDescriptor _nativeDescriptor;
@@ -115,4 +116,5 @@ namespace Plugin.BLE.iOS
                     unsubscribeReject: handler => _bleCentralManagerDelegate.DisconnectedPeripheral -= handler);
         }
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

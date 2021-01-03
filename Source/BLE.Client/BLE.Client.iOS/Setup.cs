@@ -1,16 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using Acr.UserDialogs;
-using MvvmCross;
 using MvvmCross.Forms.Platforms.Ios.Core;
-using MvvmCross.Plugin;
+using MvvmCross.IoC;
 using MvvmCross.ViewModels;
 using Plugin.Permissions;
 using Plugin.Settings;
-using UIKit;
-using Xamarin.Forms;
 
 namespace BLE.Client.iOS
 {
@@ -29,6 +22,15 @@ namespace BLE.Client.iOS
             Mvx.RegisterSingleton(() => CrossSettings.Current);
             Mvx.RegisterSingleton(() => CrossPermissions.Current);
         }
+//        protected override IMvxIoCProvider InitializeIoC()
+//        {
+//            IMvxIoCProvider mvxIoCProvider = base.InitializeIoC();
+//
+//            mvxIoCProvider.RegisterSingleton(() => UserDialogs.Instance);
+//            mvxIoCProvider.RegisterSingleton(() => CrossSettings.Current);
+//            mvxIoCProvider.RegisterSingleton(() => CrossPermissions.Current);
+//            return mvxIoCProvider;
+//        }
 
         protected override Xamarin.Forms.Application CreateFormsApplication()
         {

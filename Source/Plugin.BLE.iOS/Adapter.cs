@@ -11,6 +11,7 @@ using Plugin.BLE.Abstractions.Contracts;
 
 namespace Plugin.BLE.iOS
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Adapter : AdapterBase
     {
         private readonly AutoResetEvent _stateChanged = new AutoResetEvent(false);
@@ -209,8 +210,10 @@ namespace Plugin.BLE.iOS
         /// https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/BestPracticesForInteractingWithARemotePeripheralDevice/BestPracticesForInteractingWithARemotePeripheralDevice.html
         /// 
         /// </summary>
-        /// <returns>The to known device async.</returns>
         /// <param name="deviceGuid">Device GUID.</param>
+        /// <param name="connectParameters"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>The to known device async.</returns>
         public override async Task<IDevice> ConnectToKnownDeviceAsync(Guid deviceGuid, ConnectParameters connectParameters = default(ConnectParameters), CancellationToken cancellationToken = default(CancellationToken))
         {
             // Wait for the PoweredOn state
@@ -394,4 +397,5 @@ namespace Plugin.BLE.iOS
             return records;
         }
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

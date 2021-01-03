@@ -17,6 +17,8 @@ using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross;
 using Xamarin.Forms;
+// using Xamarin.Essentials;
+// using PermissionStatus = Xamarin.Essentials.PermissionStatus;
 
 namespace BLE.Client.ViewModels
 {
@@ -207,7 +209,7 @@ namespace BLE.Client.ViewModels
             }
             catch (Exception ex)
             {
-                Trace.Message("Failed to retreive system connected devices. {0}", ex.Message);
+                Trace.Message("Failed to retrieve system connected devices. {0}", ex.Message);
             }
         }
 
@@ -225,6 +227,12 @@ namespace BLE.Client.ViewModels
         {
             if (Xamarin.Forms.Device.RuntimePlatform == Device.Android)
             {
+//                var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+//                if (status != PermissionStatus.Granted)
+//                {
+//                    var permissionResult = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+//                    if (permissionResult != PermissionStatus.Granted)
+			
                 var status = await _permissions.CheckPermissionStatusAsync(Permission.Location);
                 if (status != PermissionStatus.Granted)
                 {

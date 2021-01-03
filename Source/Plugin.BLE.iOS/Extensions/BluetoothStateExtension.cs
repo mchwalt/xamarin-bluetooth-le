@@ -3,6 +3,7 @@ using Plugin.BLE.Abstractions.Contracts;
 
 namespace Plugin.BLE.Extensions
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public static class BluetoothStateExtension
     {
         public static BluetoothState ToBluetoothState(this CBCentralManagerState state)
@@ -26,4 +27,5 @@ namespace Plugin.BLE.Extensions
             }
         }
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

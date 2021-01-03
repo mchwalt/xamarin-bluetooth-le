@@ -14,6 +14,7 @@ using Plugin.BLE.Extensions;
 
 namespace Plugin.BLE.iOS
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Characteristic : CharacteristicBase
     {
         private readonly CBCharacteristic _nativeCharacteristic;
@@ -255,4 +256,5 @@ namespace Plugin.BLE.iOS
             }
         }
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

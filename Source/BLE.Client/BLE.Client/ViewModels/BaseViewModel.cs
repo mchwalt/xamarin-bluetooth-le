@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using MvvmCross;
 using MvvmCross.Logging;
 using MvvmCross.ViewModels;
-using Plugin.BLE.Abstractions;
 using Plugin.BLE.Abstractions.Contracts;
 
 namespace BLE.Client.ViewModels

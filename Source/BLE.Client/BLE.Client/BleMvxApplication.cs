@@ -1,11 +1,6 @@
-﻿using System;
-using BLE.Client.ViewModels;
-using MvvmCross;
-using MvvmCross.Forms.Core;
+﻿using BLE.Client.ViewModels;
 using MvvmCross.IoC;
-using MvvmCross.Localization;
 using MvvmCross.ViewModels;
-using Xamarin.Forms;
 
 namespace BLE.Client
 {

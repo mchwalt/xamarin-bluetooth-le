@@ -1,5 +1,4 @@
-﻿using MvvmCross;
-using MvvmCross.Forms.Core;
+﻿using MvvmCross.Forms.Core;
 using Plugin.BLE.Abstractions;
 
 namespace BLE.Client

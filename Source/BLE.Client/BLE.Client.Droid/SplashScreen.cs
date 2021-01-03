@@ -3,9 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using MvvmCross.Core;
-using Xamarin.Forms;
 using MvvmCross.Forms.Platforms.Android.Views;
-using MvvmCross.Platforms.Android.Views;
 using System.Threading.Tasks;
 
 namespace BLE.Client.Droid

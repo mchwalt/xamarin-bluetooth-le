@@ -4,6 +4,7 @@ using Foundation;
 
 namespace Plugin.BLE
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public interface IBleCentralManagerDelegate
     {
         event EventHandler<CBWillRestoreEventArgs> WillRestoreState;
@@ -132,4 +133,5 @@ namespace Plugin.BLE
 
         #endregion
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

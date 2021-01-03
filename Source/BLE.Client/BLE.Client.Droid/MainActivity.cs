@@ -1,11 +1,7 @@
-﻿using System;
-using Acr.UserDialogs;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using MvvmCross.Forms.Platforms.Android.Core;
 using MvvmCross.Forms.Platforms.Android.Views;
 
 namespace BLE.Client.Droid
@@ -13,6 +9,7 @@ namespace BLE.Client.Droid
     [Activity(ScreenOrientation = ScreenOrientation.Portrait
         ,ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
         LaunchMode = LaunchMode.SingleTask)]
+//    public class MainActivity : MvxFormsAppCompatActivity<MvxFormsAndroidSetup<BleMvxApplication, BleMvxFormsApp>, BleMvxApplication, BleMvxFormsApp>
     public class MainActivity 
 		: MvxFormsAppCompatActivity
     {
@@ -22,7 +19,14 @@ namespace BLE.Client.Droid
             TabLayoutResource = Resource.Layout.tabs;
 
             base.OnCreate(bundle);
+//            Xamarin.Essentials.Platform.Init(this, bundle); // add this line to your code, it may also be called: bundle
 
         }
+//        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+//        {
+//            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+//
+//            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+//        }
     }
 }

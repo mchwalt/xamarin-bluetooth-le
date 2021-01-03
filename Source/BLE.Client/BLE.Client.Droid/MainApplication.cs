@@ -21,6 +21,8 @@ namespace BLE.Client.Droid
             base.OnCreate();
             RegisterActivityLifecycleCallbacks(this);
             //A great place to initialize Xamarin.Insights and Dependency Services!
+
+            //Xamarin.Essentials.Platform.Init(this); // done in MainActivity: add this line to your code, it may also be called: bundle
         }
 
         public override void OnTerminate()
