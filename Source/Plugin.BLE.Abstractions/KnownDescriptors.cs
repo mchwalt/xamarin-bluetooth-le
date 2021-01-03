@@ -16,20 +16,26 @@ namespace Plugin.BLE.Abstractions
 
         public static KnownDescriptor Lookup(Guid id)
         {
-            return LookupTable.ContainsKey(id) ? LookupTable[id] : new KnownDescriptor("Unknown descriptor", Guid.Empty);
+            return LookupTable.ContainsKey(id) ? LookupTable[id] : new KnownDescriptor(Guid.Empty, "Unknown descriptor");
         }
 
         private static readonly IList<KnownDescriptor> Descriptors = new List<KnownDescriptor>()
         {
-            new KnownDescriptor("Characteristic Extended Properties", Guid.ParseExact("00002900-0000-1000-8000-00805f9b34fb", "d")),
-            new KnownDescriptor("Characteristic User Description", Guid.ParseExact("00002901-0000-1000-8000-00805f9b34fb", "d")),
-            new KnownDescriptor("Client Characteristic Configuration", Guid.ParseExact("00002902-0000-1000-8000-00805f9b34fb", "d")),
-            new KnownDescriptor("Server Characteristic Configuration", Guid.ParseExact("00002903-0000-1000-8000-00805f9b34fb", "d")),
-            new KnownDescriptor("Characteristic Presentation Format", Guid.ParseExact("00002904-0000-1000-8000-00805f9b34fb", "d")),
-            new KnownDescriptor("Characteristic Aggregate Format", Guid.ParseExact("00002905-0000-1000-8000-00805f9b34fb", "d")),
-            new KnownDescriptor("Valid Range", Guid.ParseExact("00002906-0000-1000-8000-00805f9b34fb", "d")),
-            new KnownDescriptor("External Report Reference", Guid.ParseExact("00002907-0000-1000-8000-00805f9b34fb", "d")),
-            new KnownDescriptor("Export Reference", Guid.ParseExact("00002908-0000-1000-8000-00805f9b34fb", "d")),
+            new KnownDescriptor("00002900-0000-1000-8000-00805f9b34fb", "Characteristic Extended Properties"),
+            new KnownDescriptor("00002901-0000-1000-8000-00805f9b34fb", "Characteristic User Description"),
+            new KnownDescriptor("00002902-0000-1000-8000-00805f9b34fb", "Client Characteristic Configuration"),
+            new KnownDescriptor("00002903-0000-1000-8000-00805f9b34fb", "Server Characteristic Configuration"),
+            new KnownDescriptor("00002904-0000-1000-8000-00805f9b34fb", "Characteristic Presentation Format"),
+            new KnownDescriptor("00002905-0000-1000-8000-00805f9b34fb", "Characteristic Aggregate Format"),
+            new KnownDescriptor("00002906-0000-1000-8000-00805f9b34fb", "Valid Range"),
+            new KnownDescriptor("00002907-0000-1000-8000-00805f9b34fb", "External Report Reference"),
+            new KnownDescriptor("00002908-0000-1000-8000-00805f9b34fb", "Export Reference"), // Report Reference ???
+            new KnownDescriptor("00002909-0000-1000-8000-00805f9b34fb", "Number of Digitals"),
+            new KnownDescriptor("0000290a-0000-1000-8000-00805f9b34fb", "Value Trigger Setting"),
+            new KnownDescriptor("0000290b-0000-1000-8000-00805f9b34fb", "Environmental Sensing Configuration"),
+            new KnownDescriptor("0000290c-0000-1000-8000-00805f9b34fb", "Environmental Sensing Measurement"),
+            new KnownDescriptor("0000290d-0000-1000-8000-00805f9b34fb", "Environmental Sensing Trigger Setting"),
+            new KnownDescriptor("0000290e-0000-1000-8000-00805f9b34fb", "Time Trigger Setting"),
         };
     }
 }
