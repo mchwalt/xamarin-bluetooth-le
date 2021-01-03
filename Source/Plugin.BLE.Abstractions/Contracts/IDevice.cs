@@ -21,10 +21,33 @@ namespace Plugin.BLE.Abstractions.Contracts
         string Name { get; }
 
         /// <summary>
+        /// Customized Name of the Device as Alias.
+        /// </summary>
+        string Alias { get; }
+
+        /// <summary>
         /// Last known rssi value in decibals.
         /// Can be updated via <see cref="UpdateRssiAsync()"/>.
         /// </summary>
         int Rssi { get; }
+
+        /// <summary>
+        /// For Android only (else null):
+        /// MAC address of the device of form '0c:0a:3a:44:66:8D'.
+        /// </summary>
+        string Address { get; }
+
+        /// <summary>
+        /// For Android only (else null):
+        /// BluetoothDeviceType of the device as string: 'Classic', 'Dual', 'Le' etc.
+        /// </summary>
+        string Type { get; }
+
+        /// <summary>
+        /// For Android only (else null):
+        /// BluetoothClass.DeviceClass as string: 'AudioVideoHeadphones', 'HealthWeighing' etc.
+        /// </summary>
+        string Class { get; }
 
         /// <summary>
         /// Gets the native device object reference. Should be cast to the 

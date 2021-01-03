@@ -29,7 +29,10 @@
                     </DataTrigger>
                   </Grid.Triggers>
                   <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                    <Label Text="{Binding Name}" FontSize="Large" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Name}" FontSize="Medium"/>
+                        <Label Text="{Binding Address}" FontSize="Small"/>
+                    </StackLayout>
                     <Label Text="{Binding Id, StringFormat='{0}'}" TextColor="Gray" FontSize="Small"/>
                   </StackLayout>
                   <Label Grid.Column="1"

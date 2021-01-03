@@ -20,8 +20,9 @@
             <Label Text="{Binding Characteristic.Properties, StringFormat='Properties: {0}'}" TextColor="Brown"/>
       <Label Text="{Binding Permissions, StringFormat='Permissions: {0}'}" TextColor="Brown"/>
       <Label Text="{Binding CharacteristicValue, StringFormat='Value: {0}'}" TextColor="Brown"/>
-      <BoxView HeightRequest="1" BackgroundColor="Gray" />
-            <Grid>
+      <Label Text="{Binding CharacteristicValuePresumed, StringFormat='Presumed Content: {0}'}" TextColor="Brown"/>
+        <BoxView HeightRequest="1" BackgroundColor="Gray" />
+      <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*"/>
           <ColumnDefinition Width="*"/>

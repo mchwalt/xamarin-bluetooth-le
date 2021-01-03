@@ -39,7 +39,11 @@ namespace Plugin.BLE.Abstractions
         private readonly List<IService> KnownServices = new List<IService>();
         public Guid Id { get; protected set; }
         public string Name { get; protected set; }
+        public string Alias { get; protected set; }
         public int Rssi { get; protected set; }
+        public string Address { get; protected set; } = null;
+        public string Type { get; protected set; } = null;
+        public string Class { get; protected set; } = null;
         public DeviceState State => GetState();
         public IList<AdvertisementRecord> AdvertisementRecords { get; protected set; }
         public abstract object NativeDevice { get; }
@@ -97,7 +101,10 @@ namespace Plugin.BLE.Abstractions
 
         public override string ToString()
         {
-            return Name;
+            if (!string.IsNullOrEmpty(Address))
+                return $"{Name} - {Address}";
+            else
+                return Name;
         }
 
         public void Dispose()

@@ -21,6 +21,7 @@ namespace BLE.Client.ViewModels
         public ICharacteristic Characteristic { get; private set; }
 
         public string CharacteristicValue => Characteristic?.Value.ToHexString().Replace("-", " ");
+        public string CharacteristicValuePresumed => BLE.Client.Converters.ByteHandler.PresumedContentToString(Characteristic?.Value);
 
         public ObservableCollection<string> Messages { get; } = new ObservableCollection<string>();
 
@@ -88,6 +89,7 @@ namespace BLE.Client.ViewModels
                 await Characteristic.ReadAsync();
 
                 await RaisePropertyChanged(() => CharacteristicValue);
+                await RaisePropertyChanged(() => CharacteristicValuePresumed);
 
                 Messages.Insert(0, $"Read value {CharacteristicValue}");
             }
@@ -127,6 +129,7 @@ namespace BLE.Client.ViewModels
                 _userDialogs.HideLoading();
 
                 await RaisePropertyChanged(() => CharacteristicValue);
+                await RaisePropertyChanged(() => CharacteristicValuePresumed);
                 Messages.Insert(0, $"Wrote value {CharacteristicValue}");
             }
             catch (Exception ex)
@@ -200,6 +203,7 @@ namespace BLE.Client.ViewModels
         {
             Messages.Insert(0, $"{DateTime.Now.TimeOfDay} - Updated: {CharacteristicValue}");
             RaisePropertyChanged(() => CharacteristicValue);
+            RaisePropertyChanged(() => CharacteristicValuePresumed);
         }
     }
 }

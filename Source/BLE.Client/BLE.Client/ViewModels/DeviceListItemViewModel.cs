@@ -13,6 +13,7 @@ namespace BLE.Client.ViewModels
         public bool IsConnected => Device.State == DeviceState.Connected;
         public int Rssi => Device.Rssi;
         public string Name => Device.Name;
+        public string Address => Device.Address;
 
         public DeviceListItemViewModel(IDevice device)
         {
