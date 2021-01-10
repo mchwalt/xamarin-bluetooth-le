@@ -57,12 +57,9 @@ namespace Plugin.BLE.Android
 
             Id = ParseDeviceId();
             Name = BluetoothDevice.Name;
-            Address = BluetoothDevice.Address;
             //Alias = BluetoothDevice.Alias;
 
-            //BluetoothDeviceType Type = BluetoothDevice.Type;
-            //DeviceClass = BluetoothDevice.BluetoothClass.DeviceClass;
-            //MajorDeviceClass = BluetoothDevice.BluetoothClass.MajorDeviceClass;
+            MetaData = $"Type=[{BluetoothDevice.Type}], Class=[{BluetoothDevice.BluetoothClass.DeviceClass}], MajorClass=[{BluetoothDevice.BluetoothClass.MajorDeviceClass}]";
         }
 
         public override object NativeDevice => BluetoothDevice;

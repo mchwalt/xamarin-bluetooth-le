@@ -40,10 +40,8 @@ namespace Plugin.BLE.Abstractions
         public Guid Id { get; protected set; }
         public string Name { get; protected set; }
         public string Alias { get; protected set; }
+        public string MetaData { get; protected set; }
         public int Rssi { get; protected set; }
-        public string Address { get; protected set; } = null;
-        public string Type { get; protected set; } = null;
-        public string Class { get; protected set; } = null;
         public DeviceState State => GetState();
         public IList<AdvertisementRecord> AdvertisementRecords { get; protected set; }
         public abstract object NativeDevice { get; }
@@ -101,10 +99,7 @@ namespace Plugin.BLE.Abstractions
 
         public override string ToString()
         {
-            if (!string.IsNullOrEmpty(Address))
-                return $"{Name} - {Address}";
-            else
-                return Name;
+            return Name;
         }
 
         public void Dispose()

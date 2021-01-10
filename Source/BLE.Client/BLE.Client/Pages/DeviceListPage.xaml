@@ -17,10 +17,10 @@
                             Text="Disconnect"/>
                 </ViewCell.ContextActions>
                 <Grid>
-                  <Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
-                  </Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
                   <Grid.Triggers>
                     <DataTrigger TargetType="Grid"
                                  Binding="{Binding IsConnected}"
@@ -29,12 +29,10 @@
                     </DataTrigger>
                   </Grid.Triggers>
                   <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding Name}" FontSize="Medium"/>
-                        <Label Text="{Binding Address}" FontSize="Small"/>
-                    </StackLayout>
+                    <Label Text="{Binding Name}" FontSize="Medium"/>
                     <Label Text="{Binding Id, StringFormat='{0}'}" TextColor="Gray" FontSize="Small"/>
-                  </StackLayout>
+                    <Label Text="{Binding MetaData, StringFormat='{0}'}" TextColor="Gray" FontSize="Small" MaxLines="3"/>
+                </StackLayout>
                   <Label Grid.Column="1"
                          Margin="10"
                          Text="{Binding Rssi}"
@@ -63,7 +61,7 @@
                  IsPullToRefreshEnabled="True"
                  RefreshCommand="{Binding RefreshCommand}"
                  IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
-                 RowHeight="80"
+                 RowHeight="100"
                  ItemTemplate="{StaticResource DeviceItemTemplate}">
         </ListView>
 
@@ -92,7 +90,7 @@
     </ContentPage>
     <ContentPage Title="System devices">
        <ListView ItemsSource="{Binding SystemDevices}" SelectedItem="{Binding SelectedDevice, Mode=TwoWay}"
-                 RowHeight="80"
+                 RowHeight="100"
                  ItemTemplate="{StaticResource DeviceItemTemplate}"/>
     </ContentPage>
   </views:MvxTabbedPage.Children>
