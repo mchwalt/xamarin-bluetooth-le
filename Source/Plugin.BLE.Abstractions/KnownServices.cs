@@ -4,7 +4,8 @@ using System.Linq;
 
 namespace Plugin.BLE.Abstractions
 {
-    // Source: https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx
+    // 16-bit UUID Numbers Document, Revision 2021-1-7
+    // Source: https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf
     public static class KnownServices
     {
         private static readonly Dictionary<Guid, KnownService> LookupTable;
