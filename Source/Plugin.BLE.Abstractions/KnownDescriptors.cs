@@ -4,7 +4,8 @@ using System.Linq;
 
 namespace Plugin.BLE.Abstractions
 {
-    // Source: https://developer.bluetooth.org/gatt/descriptors/Pages/DescriptorsHomePage.aspx
+    // 16-bit UUID Numbers Document, Revision 2021-1-7
+    // Source: https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf
     public static class KnownDescriptors
     {
         private static readonly Dictionary<Guid, KnownDescriptor> LookupTable;
@@ -29,13 +30,14 @@ namespace Plugin.BLE.Abstractions
             new KnownDescriptor("00002905-0000-1000-8000-00805f9b34fb", "Characteristic Aggregate Format"),
             new KnownDescriptor("00002906-0000-1000-8000-00805f9b34fb", "Valid Range"),
             new KnownDescriptor("00002907-0000-1000-8000-00805f9b34fb", "External Report Reference"),
-            new KnownDescriptor("00002908-0000-1000-8000-00805f9b34fb", "Export Reference"), // Report Reference ???
+            new KnownDescriptor("00002908-0000-1000-8000-00805f9b34fb", "Report Reference"),
             new KnownDescriptor("00002909-0000-1000-8000-00805f9b34fb", "Number of Digitals"),
             new KnownDescriptor("0000290a-0000-1000-8000-00805f9b34fb", "Value Trigger Setting"),
             new KnownDescriptor("0000290b-0000-1000-8000-00805f9b34fb", "Environmental Sensing Configuration"),
             new KnownDescriptor("0000290c-0000-1000-8000-00805f9b34fb", "Environmental Sensing Measurement"),
             new KnownDescriptor("0000290d-0000-1000-8000-00805f9b34fb", "Environmental Sensing Trigger Setting"),
             new KnownDescriptor("0000290e-0000-1000-8000-00805f9b34fb", "Time Trigger Setting"),
+            new KnownDescriptor("0000290f-0000-1000-8000-00805f9b34fb", "Complete BR-EDR Transport Block Data"),
         };
     }
 }
