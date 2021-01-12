@@ -59,7 +59,13 @@ namespace Plugin.BLE.Android
             Name = BluetoothDevice.Name;
             //Alias = BluetoothDevice.Alias;
 
-            MetaData = $"Type=[{BluetoothDevice.Type}], Class=[{BluetoothDevice.BluetoothClass.DeviceClass}], MajorClass=[{BluetoothDevice.BluetoothClass.MajorDeviceClass}]";
+            string deviceClass;
+            if ((int)BluetoothDevice.BluetoothClass.DeviceClass == ((int)DeviceClass.ComputerUncategorized + (int)DeviceClass.PhoneUncategorized + (int)DeviceClass.AudioVideoUncategorized + (int)DeviceClass.WearableUncategorized + (int)DeviceClass.ToyUncategorized + (int)DeviceClass.HealthUncategorized))
+                deviceClass = "Uncategorized"; // == sum 7936
+            else
+                deviceClass = BluetoothDevice.BluetoothClass.DeviceClass.ToString();
+
+            MetaData = $"Type=[{BluetoothDevice.Type}], Class=[{deviceClass}], MajorClass=[{BluetoothDevice.BluetoothClass.MajorDeviceClass}]";
         }
 
         public override object NativeDevice => BluetoothDevice;
