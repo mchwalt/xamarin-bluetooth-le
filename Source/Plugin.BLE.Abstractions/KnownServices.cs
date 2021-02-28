@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Plugin.BLE.Abstractions
 {
-    // 16-bit UUID Numbers Document, Revision 2021-1-7
+    // 16-bit UUID Numbers Document, Revision 2021-2-5
     // Source: https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf
     public static class KnownServices
     {
@@ -69,6 +69,8 @@ namespace Plugin.BLE.Abstractions
             new KnownService("00001844-0000-1000-8000-00805f9b34fb", "Volume Control"),
             new KnownService("00001845-0000-1000-8000-00805f9b34fb", "Volume Offset Control"),
             new KnownService("00001847-0000-1000-8000-00805f9b34fb", "Device Time"),
+            new KnownService("0000184A-0000-1000-8000-00805f9b34fb", "Constant Tone Extension"),
+
             new KnownService("00001910-0000-1000-8000-00805f9b34fb", "Temperature X (???)"),
             new KnownService("00001920-0000-1000-8000-00805f9b34fb", "Acceleration, Orientation X (???)"),
             new KnownService("00001930-0000-1000-8000-00805f9b34fb", "Advertising Interval X (???)"),
@@ -76,7 +78,12 @@ namespace Plugin.BLE.Abstractions
             new KnownService("00002b20-0000-1000-8000-00805f9b34fb", "Acceleration, Orientation Y (???)"),
             new KnownService("00002b30-0000-1000-8000-00805f9b34fb", "Advertising Interval Y (???)"),
             new KnownService("00006006-0000-1000-8000-00805f9b34fb", "Pedometer"),
-            new KnownService("0000ffe0-0000-1000-8000-00805f9b34fb", "TI SensorTag Smart Keys"),
+            new KnownService("0000ff00-0000-1000-8000-00805f9b34fb", "Extension"),
+            new KnownService("0000ff90-0000-1000-8000-00805f9b34fb", "Device Config"),
+            new KnownService("0000ffa0-0000-1000-8000-00805f9b34fb", "Bluetooth RSSI"),
+            new KnownService("0000ffc0-0000-1000-8000-00805f9b34fb", "Password"),
+            new KnownService("0000ffe0-0000-1000-8000-00805f9b34fb", "TI SensorTag Smart Keys"), // Read Data From Device, Key information ???
+            new KnownService("0000ffe5-0000-1000-8000-00805f9b34fb", "Send Data to Device"),
             new KnownService("713d0000-503e-4c75-ba94-3148f18d941e", "TXRX_SERV_UUID RedBearLabs Biscuit Service"),
             new KnownService("f000aa00-0451-4000-b000-000000000000", "TI SensorTag Infrared Thermometer"),
             new KnownService("f000aa10-0451-4000-b000-000000000000", "TI SensorTag Accelerometer"),

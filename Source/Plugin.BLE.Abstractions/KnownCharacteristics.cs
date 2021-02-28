@@ -20,7 +20,7 @@ namespace Plugin.BLE.Abstractions
         private static readonly Dictionary<Guid, KnownCharacteristic> LookupTable;
 
         /// <summary>
-        // 16-bit UUID Numbers Document, Revision 2021-1-7
+        // 16-bit UUID Numbers Document, Revision 2021-2-5
         // Source: https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf
         /// </summary>
         private static readonly List<KnownCharacteristic> Characteristics = new List<KnownCharacteristic>()
@@ -373,7 +373,22 @@ namespace Plugin.BLE.Abstractions
             new KnownCharacteristic("00002B90-0000-1000-8000-00805f9b34fb", "Device Time"),
             new KnownCharacteristic("00002B91-0000-1000-8000-00805f9b34fb", "Device Time Control Point"),
             new KnownCharacteristic("00002B92-0000-1000-8000-00805f9b34fb", "Time Change Log Data"),
-            new KnownCharacteristic("0000ffe1-0000-1000-8000-00805f9b34fb", "TI SensorTag Keys Data"),                                      
+            new KnownCharacteristic("00002BAD-0000-1000-8000-00805f9b34fb", "Constant Tone Extension Enable"),
+            new KnownCharacteristic("00002BAE-0000-1000-8000-00805f9b34fb", "Advertising Constant Tone Extension Minimum Length"),
+            new KnownCharacteristic("00002BAF-0000-1000-8000-00805f9b34fb", "Advertising Constant Tone Extension Minimum Transmit Count"),
+            new KnownCharacteristic("00002BB0-0000-1000-8000-00805f9b34fb", "Advertising Constant Tone Extension Transmit Duration"),
+            new KnownCharacteristic("00002BB1-0000-1000-8000-00805f9b34fb", "Advertising Constant Tone Extension Interval"),
+            new KnownCharacteristic("00002BB2-0000-1000-8000-00805f9b34fb", "Advertising Constant Tone Extension PHY"),
+
+            new KnownCharacteristic("0000ffa1-0000-1000-8000-00805f9b34fb", "RSSI Read"),
+            new KnownCharacteristic("0000ffa2-0000-1000-8000-00805f9b34fb", "RSSI Config"),
+            new KnownCharacteristic("0000ffe1-0000-1000-8000-00805f9b34fb", "TI SensorTag Keys Data"),      // button press?                                
+            new KnownCharacteristic("0000ffe4-0000-1000-8000-00805f9b34fb", "Read Data from Device"),
+            new KnownCharacteristic("0000ffe9-0000-1000-8000-00805f9b34fb", "Send Data to Device"),
+            new KnownCharacteristic("0000fff0-0000-1000-8000-00805f9b34fb", "Device Settings"),
+            //new KnownCharacteristic("0000ffc0-0000-1000-8000-00805f9b34fb", "Authentication"), // password, see KnownServices ?
+            new KnownCharacteristic("0000ffc1-0000-1000-8000-00805f9b34fb", "Unbind"),
+            new KnownCharacteristic("0000ffc3-0000-1000-8000-00805f9b34fb", "Rename"),
             new KnownCharacteristic("713d0001-503e-4c75-ba94-3148f18d941e", "RedBearLabs Biscuit Read"),                                    
             new KnownCharacteristic("713d0002-503e-4c75-ba94-3148f18d941e", "RedBearLabs Biscuit TX_DATA_CHAR_UUID Notify"),                
             new KnownCharacteristic("713d0003-503e-4c75-ba94-3148f18d941e", "RedBearLabs Biscuit RX_DATA_CHAR_UUID WriteWithoutResponse"),  
