@@ -17,33 +17,34 @@ namespace BLE.Client.macOS
 {
     public class Setup : MvxFormsMacSetup<BleMvxApplication, BleMvxFormsApp>
     {
-        protected override void InitializeIoC()
-        {
-            base.InitializeIoC();
+        // <= Android 9.0 Pi
+        //protected override void InitializeIoC()
+        //{
+        //    base.InitializeIoC();
 
-            // Mvx.IoCProvider.RegisterSingleton(() => CrossBluetoothLE.Current);
-            // Mvx.IoCProvider.RegisterSingleton(() => CrossBluetoothLE.Current.Adapter);
-            Mvx.IoCProvider.RegisterSingleton(() => CrossSettings.Current);
-            Mvx.IoCProvider.RegisterSingleton<IPermissions>(() => new PermissionMac());
-            Mvx.IoCProvider.RegisterSingleton<IUserDialogs>(() => new UserDialogsMac());
+        //    // Mvx.IoCProvider.RegisterSingleton(() => CrossBluetoothLE.Current);
+        //    // Mvx.IoCProvider.RegisterSingleton(() => CrossBluetoothLE.Current.Adapter);
+        //    Mvx.IoCProvider.RegisterSingleton(() => CrossSettings.Current);
+        //    Mvx.IoCProvider.RegisterSingleton<IPermissions>(() => new PermissionMac());
+        //    Mvx.IoCProvider.RegisterSingleton<IUserDialogs>(() => new UserDialogsMac());
+        //}
+
+        protected override IMvxIoCProvider InitializeIoC()
+        {
+
+            IMvxIoCProvider mvxIoCProvider = base.InitializeIoC();
+
+            // mvxIoCProvider.RegisterSingleton(() => CrossBluetoothLE.Current);
+            // mvxIoCProvider.RegisterSingleton(() => CrossBluetoothLE.Current.Adapter);
+            mvxIoCProvider.RegisterSingleton(() => CrossSettings.Current);
+            mvxIoCProvider.RegisterSingleton<IPermissions>(() => new PermissionMac());
+            mvxIoCProvider.RegisterSingleton<IUserDialogs>(() => new UserDialogsMac());
+
+            //mvxIoCProvider.RegisterSingleton(() => UserDialogs.Instance);
+            //mvxIoCProvider.RegisterSingleton(() => CrossPermissions.Current);
+
+            return mvxIoCProvider;
         }
-		
-//        protected override IMvxIoCProvider InitializeIoC()
-//        {
-//
-//            IMvxIoCProvider mvxIoCProvider = base.InitializeIoC();
-//
-//            // mvxIoCProvider.RegisterSingleton(() => CrossBluetoothLE.Current);
-//            // mvxIoCProvider.RegisterSingleton(() => CrossBluetoothLE.Current.Adapter);
-//            mvxIoCProvider.RegisterSingleton(() => CrossSettings.Current);
-//            mvxIoCProvider.RegisterSingleton<IPermissions>(() => new PermissionMac());
-//            mvxIoCProvider.RegisterSingleton<IUserDialogs>(() => new UserDialogsMac());
-//
-//            //mvxIoCProvider.RegisterSingleton(() => UserDialogs.Instance);
-//            //mvxIoCProvider.RegisterSingleton(() => CrossPermissions.Current);
-//
-//            return mvxIoCProvider;
-//        }
 
 
         public override IEnumerable<Assembly> GetPluginAssemblies()
@@ -60,15 +61,16 @@ namespace BLE.Client.macOS
 
         private class PermissionMac : IPermissions
         {
+
             public Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission)
             {
                 return Task.FromResult(PermissionStatus.Granted);
             }
 
-//            public Task<PermissionStatus> CheckPermissionStatusAsync<T>() where T : BasePermission, new()
-//            {
-//                return Task.FromResult(PermissionStatus.Granted);
-//            }
+            public Task<PermissionStatus> CheckPermissionStatusAsync<T>() where T : BasePermission, new()
+            {
+                return Task.FromResult(PermissionStatus.Granted);
+            }
 
             public bool OpenAppSettings()
             {
@@ -80,10 +82,10 @@ namespace BLE.Client.macOS
                 return Task.FromResult(permissions.ToDictionary(p => p, p => PermissionStatus.Granted));
             }
 
-//            public Task<PermissionStatus> RequestPermissionAsync<T>() where T : BasePermission, new()
-//            {
-//                return Task.FromResult(PermissionStatus.Granted);
-//            }
+            public Task<PermissionStatus> RequestPermissionAsync<T>() where T : BasePermission, new()
+            {
+                return Task.FromResult(PermissionStatus.Granted);
+            }
 
             public Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission)
             {

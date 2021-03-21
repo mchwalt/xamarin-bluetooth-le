@@ -17,23 +17,24 @@ namespace BLE.Client.Droid
             return new List<Assembly>(base.GetViewAssemblies().Union(new[] { typeof(BleMvxFormsApp).GetTypeInfo().Assembly }));
         }
 
-        protected override void InitializeIoC()
+        // Android <= 9.0 Pi
+        //protected override void InitializeIoC()
+        //{
+        //    base.InitializeIoC();
+
+        //    Mvx.IoCProvider.RegisterSingleton(() => UserDialogs.Instance);
+        //    Mvx.IoCProvider.RegisterSingleton(() => CrossSettings.Current);
+        //    Mvx.IoCProvider.RegisterSingleton(() => CrossPermissions.Current);
+        //}
+
+        protected override IMvxIoCProvider InitializeIoC()
         {
-            base.InitializeIoC();
+            IMvxIoCProvider mvxIoCProvider = base.InitializeIoC();
 
-            Mvx.IoCProvider.RegisterSingleton(() => UserDialogs.Instance);
-            Mvx.IoCProvider.RegisterSingleton(() => CrossSettings.Current);
-            Mvx.IoCProvider.RegisterSingleton(() => CrossPermissions.Current);
+            mvxIoCProvider.RegisterSingleton(() => UserDialogs.Instance);
+            mvxIoCProvider.RegisterSingleton(() => CrossSettings.Current);
+            mvxIoCProvider.RegisterSingleton(() => CrossPermissions.Current);
+            return mvxIoCProvider;
         }
-
-//        protected override IMvxIoCProvider InitializeIoC()
-//        {
-//            IMvxIoCProvider mvxIoCProvider = base.InitializeIoC();
-//
-//            mvxIoCProvider.RegisterSingleton(() => UserDialogs.Instance);
-//            mvxIoCProvider.RegisterSingleton(() => CrossSettings.Current);
-//            mvxIoCProvider.RegisterSingleton(() => CrossPermissions.Current);
-//            return mvxIoCProvider;
-//        }
     }
 }

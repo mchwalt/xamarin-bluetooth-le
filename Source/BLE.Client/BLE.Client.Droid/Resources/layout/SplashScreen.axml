@@ -8,5 +8,6 @@
         android:src="@drawable/icon"
         android:layout_height="wrap_content"
         android:scaleType="center"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:contentDescription="description" />
 </RelativeLayout>
