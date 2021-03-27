@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -13,7 +12,6 @@ using Plugin.BLE.Abstractions.Contracts;
 using Plugin.BLE.Extensions;
 using Object = Java.Lang.Object;
 using Trace = Plugin.BLE.Abstractions.Trace;
-using Android.App;
 
 namespace Plugin.BLE.Android
 {
@@ -97,6 +95,11 @@ namespace Plugin.BLE.Android
 
             var ssb = new ScanSettings.Builder();
             ssb.SetScanMode(ScanMode.ToNative());
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+            {
+                // enable Bluetooth 5 Advertisement Extensions on Android 8.0 and above; thanks to https://github.com/xabre/xamarin-bluetooth-le/commits?author=janusw
+                ssb.SetLegacy(false);
+            }
             //ssb.SetCallbackType(ScanCallbackType.AllMatches);
 
             if (_bluetoothAdapter.BluetoothLeScanner != null)
