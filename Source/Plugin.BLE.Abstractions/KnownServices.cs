@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Plugin.BLE.Abstractions
 {
-    // 16-bit UUID Numbers Document, Revision 2021-2-5
+    // 16-bit UUID Numbers Document, Revision 2021-3-24
     // Source: https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf
     public static class KnownServices
     {
@@ -69,8 +69,13 @@ namespace Plugin.BLE.Abstractions
             new KnownService("00001844-0000-1000-8000-00805f9b34fb", "Volume Control"),
             new KnownService("00001845-0000-1000-8000-00805f9b34fb", "Volume Offset Control"),
             new KnownService("00001847-0000-1000-8000-00805f9b34fb", "Device Time"),
+            new KnownService("00001846-0000-1000-8000-00805f9b34fb", "Coordinated Set Identification Service"),
+            new KnownService("00001848-0000-1000-8000-00805f9b34fb", "Media Control Service"),
+            new KnownService("00001849-0000-1000-8000-00805f9b34fb", "Generic Media Control Service"),
             new KnownService("0000184A-0000-1000-8000-00805f9b34fb", "Constant Tone Extension"),
-
+            new KnownService("0000184B-0000-1000-8000-00805f9b34fb", "Telephone Bearer Service"),
+            new KnownService("0000184C-0000-1000-8000-00805f9b34fb", "Generic Telephone Bearer Service"),
+            new KnownService("0000184D-0000-1000-8000-00805f9b34fb", "Microphone Control"),
             new KnownService("00001910-0000-1000-8000-00805f9b34fb", "Temperature X (???)"),
             new KnownService("00001920-0000-1000-8000-00805f9b34fb", "Acceleration, Orientation X (???)"),
             new KnownService("00001930-0000-1000-8000-00805f9b34fb", "Advertising Interval X (???)"),
